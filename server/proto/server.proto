@@ -1,0 +1,17 @@
+syntax = 'proto3';
+// Send the desired name to the server.
+message UserNameRequest { string username = 1; }
+
+// A text message from a user.
+message ChatMessageRequest { string text = 1; }
+// An icon from a user.
+message ChatIconRequest { string name = 1; }
+
+// A command to be sent to the server.
+message ServerCommand {
+  oneof CommandType {
+    UserNameRequest username = 16;
+    ChatMessageRequest chatMessage = 17;
+    ChatIconRequest chatIcon = 18;
+  }
+}

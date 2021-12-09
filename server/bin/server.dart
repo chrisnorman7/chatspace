@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:logging/logging.dart';
+import 'package:server/proto.dart';
 import 'package:server/user.dart';
 
 Future<void> main() async {
@@ -22,7 +23,55 @@ Future<void> main() async {
     final user = User(webSocket);
     users.add(user);
     webSocket.listen(
-      (dynamic event) {},
+      (dynamic event) {
+        if (event is List<int>) {
+          final command = ServerCommand.fromBuffer(event);
+          switch (command.whichCommandType()) {
+            case ServerCommand_CommandType.username:
+              if (user.name != null) {
+                return user.sendSystemMessage('You cannot rename yourself.');
+              }
+              user
+                ..name = command.ensureUsername().username
+                ..createLogger()
+                ..logger.fine('Authenticated.');
+              break;
+            case ServerCommand_CommandType.notSet:
+              user.sendSystemMessage('Invalid command.');
+              break;
+            case ServerCommand_CommandType.chatMessage:
+              if (user.name == null) {
+                return user.sendSystemMessage('You must set your name first.');
+              }
+              final message = command.ensureChatMessage().text;
+              final firstPerson = ClientCommand(
+                  chatMessage:
+                      ChatMessageResponse(username: 'You', text: message));
+              final everyone = ClientCommand(
+                  chatMessage:
+                      ChatMessageResponse(username: user.name, text: message));
+              for (final u in users) {
+                u.sendCommand(u == user ? firstPerson : everyone);
+              }
+              break;
+            case ServerCommand_CommandType.chatIcon:
+              if (user.name == null) {
+                return user.sendSystemMessage('You must set your name first.');
+              }
+              final iconName = command.ensureChatIcon().name;
+              final firstPerson = ClientCommand(
+                  chatIcon: ChatIconResponse(
+                      iconName: iconName, username: user.name));
+              final everyone = ClientCommand(
+                  chatIcon: ChatIconResponse(
+                      iconName: iconName, username: user.name));
+              for (final u in users) {
+                u.sendCommand(u == user ? firstPerson : everyone);
+              }
+              break;
+          }
+        }
+      },
       onDone: () {
         user.logger.fine('Disconnected.');
         webSocket.close();

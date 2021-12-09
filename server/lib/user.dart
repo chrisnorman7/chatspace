@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:logging/logging.dart';
 
+import 'proto.dart';
+
 /// A user in the chat room.
 class User {
   /// Create an instance.
@@ -23,4 +25,12 @@ class User {
   void createLogger() {
     logger = Logger(name ?? 'Unauthenticated User');
   }
+
+  /// Send a command to the [webSocket].
+  void sendCommand(ClientCommand command) =>
+      webSocket.add(command.writeToBuffer());
+
+  /// Send a system message to this user.
+  void sendSystemMessage(String text) => sendCommand(ClientCommand(
+      chatMessage: ChatMessageResponse(text: text, username: 'System')));
 }

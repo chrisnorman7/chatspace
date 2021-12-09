@@ -1,0 +1,25 @@
+syntax = 'proto3';
+
+// Sent by the client to itself to indicate that the username is being handled.
+message UserNameResponse {}
+
+// A chat message from a user.
+message ChatMessageResponse {
+  string username = 1;
+  string text = 2;
+}
+
+// A chat icon from a user.
+message ChatIconResponse {
+  string username = 1;
+  string iconName = 2;
+}
+
+// A message from the server to the client.
+message ClientCommand {
+  oneof CommandType {
+    UserNameResponse userNameHandling = 16;
+    ChatMessageResponse chatMessage = 17;
+    ChatIconResponse chatIcon = 18;
+  }
+}
