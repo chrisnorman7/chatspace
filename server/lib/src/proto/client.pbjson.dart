@@ -37,6 +37,26 @@ const ChatIconResponse$json = const {
 
 /// Descriptor for `ChatIconResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List chatIconResponseDescriptor = $convert.base64Decode('ChBDaGF0SWNvblJlc3BvbnNlEhoKCHVzZXJuYW1lGAEgASgJUgh1c2VybmFtZRIaCghpY29uTmFtZRgCIAEoCVIIaWNvbk5hbWU=');
+@$core.Deprecated('Use userJoinedDescriptor instead')
+const UserJoined$json = const {
+  '1': 'UserJoined',
+  '2': const [
+    const {'1': 'username', '3': 1, '4': 1, '5': 9, '10': 'username'},
+  ],
+};
+
+/// Descriptor for `UserJoined`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userJoinedDescriptor = $convert.base64Decode('CgpVc2VySm9pbmVkEhoKCHVzZXJuYW1lGAEgASgJUgh1c2VybmFtZQ==');
+@$core.Deprecated('Use userLeftDescriptor instead')
+const UserLeft$json = const {
+  '1': 'UserLeft',
+  '2': const [
+    const {'1': 'username', '3': 1, '4': 1, '5': 9, '10': 'username'},
+  ],
+};
+
+/// Descriptor for `UserLeft`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List userLeftDescriptor = $convert.base64Decode('CghVc2VyTGVmdBIaCgh1c2VybmFtZRgBIAEoCVIIdXNlcm5hbWU=');
 @$core.Deprecated('Use clientCommandDescriptor instead')
 const ClientCommand$json = const {
   '1': 'ClientCommand',
@@ -44,6 +64,8 @@ const ClientCommand$json = const {
     const {'1': 'userNameHandling', '3': 16, '4': 1, '5': 11, '6': '.UserNameResponse', '9': 0, '10': 'userNameHandling'},
     const {'1': 'chatMessage', '3': 17, '4': 1, '5': 11, '6': '.ChatMessageResponse', '9': 0, '10': 'chatMessage'},
     const {'1': 'chatIcon', '3': 18, '4': 1, '5': 11, '6': '.ChatIconResponse', '9': 0, '10': 'chatIcon'},
+    const {'1': 'userJoined', '3': 19, '4': 1, '5': 11, '6': '.UserJoined', '9': 0, '10': 'userJoined'},
+    const {'1': 'userLeft', '3': 20, '4': 1, '5': 11, '6': '.UserLeft', '9': 0, '10': 'userLeft'},
   ],
   '8': const [
     const {'1': 'CommandType'},
@@ -51,4 +73,4 @@ const ClientCommand$json = const {
 };
 
 /// Descriptor for `ClientCommand`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List clientCommandDescriptor = $convert.base64Decode('Cg1DbGllbnRDb21tYW5kEj8KEHVzZXJOYW1lSGFuZGxpbmcYECABKAsyES5Vc2VyTmFtZVJlc3BvbnNlSABSEHVzZXJOYW1lSGFuZGxpbmcSOAoLY2hhdE1lc3NhZ2UYESABKAsyFC5DaGF0TWVzc2FnZVJlc3BvbnNlSABSC2NoYXRNZXNzYWdlEi8KCGNoYXRJY29uGBIgASgLMhEuQ2hhdEljb25SZXNwb25zZUgAUghjaGF0SWNvbkINCgtDb21tYW5kVHlwZQ==');
+final $typed_data.Uint8List clientCommandDescriptor = $convert.base64Decode('Cg1DbGllbnRDb21tYW5kEj8KEHVzZXJOYW1lSGFuZGxpbmcYECABKAsyES5Vc2VyTmFtZVJlc3BvbnNlSABSEHVzZXJOYW1lSGFuZGxpbmcSOAoLY2hhdE1lc3NhZ2UYESABKAsyFC5DaGF0TWVzc2FnZVJlc3BvbnNlSABSC2NoYXRNZXNzYWdlEi8KCGNoYXRJY29uGBIgASgLMhEuQ2hhdEljb25SZXNwb25zZUgAUghjaGF0SWNvbhItCgp1c2VySm9pbmVkGBMgASgLMgsuVXNlckpvaW5lZEgAUgp1c2VySm9pbmVkEicKCHVzZXJMZWZ0GBQgASgLMgkuVXNlckxlZnRIAFIIdXNlckxlZnRCDQoLQ29tbWFuZFR5cGU=');

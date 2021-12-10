@@ -35,6 +35,11 @@ Future<void> main() async {
                 ..name = command.ensureUsername().username
                 ..createLogger()
                 ..logger.fine('Authenticated.');
+              final userJoined =
+                  ClientCommand(userJoined: UserJoined(username: user.name));
+              for (final u in users) {
+                u.sendCommand(userJoined);
+              }
               break;
             case ServerCommand_CommandType.notSet:
               user.sendSystemMessage('Invalid command.');
@@ -76,6 +81,10 @@ Future<void> main() async {
         user.logger.fine('Disconnected.');
         webSocket.close();
         users.remove(user);
+        final userLeft = ClientCommand(userLeft: UserLeft(username: user.name));
+        for (final u in users) {
+          u.sendCommand(userLeft);
+        }
       },
     );
   });

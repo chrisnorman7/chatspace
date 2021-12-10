@@ -160,10 +160,106 @@ class ChatIconResponse extends $pb.GeneratedMessage {
   void clearIconName() => clearField(2);
 }
 
+class UserJoined extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UserJoined', createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'username')
+    ..hasRequiredFields = false
+  ;
+
+  UserJoined._() : super();
+  factory UserJoined({
+    $core.String? username,
+  }) {
+    final _result = create();
+    if (username != null) {
+      _result.username = username;
+    }
+    return _result;
+  }
+  factory UserJoined.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UserJoined.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UserJoined clone() => UserJoined()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UserJoined copyWith(void Function(UserJoined) updates) => super.copyWith((message) => updates(message as UserJoined)) as UserJoined; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UserJoined create() => UserJoined._();
+  UserJoined createEmptyInstance() => create();
+  static $pb.PbList<UserJoined> createRepeated() => $pb.PbList<UserJoined>();
+  @$core.pragma('dart2js:noInline')
+  static UserJoined getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserJoined>(create);
+  static UserJoined? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get username => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set username($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUsername() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUsername() => clearField(1);
+}
+
+class UserLeft extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UserLeft', createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'username')
+    ..hasRequiredFields = false
+  ;
+
+  UserLeft._() : super();
+  factory UserLeft({
+    $core.String? username,
+  }) {
+    final _result = create();
+    if (username != null) {
+      _result.username = username;
+    }
+    return _result;
+  }
+  factory UserLeft.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UserLeft.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UserLeft clone() => UserLeft()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UserLeft copyWith(void Function(UserLeft) updates) => super.copyWith((message) => updates(message as UserLeft)) as UserLeft; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UserLeft create() => UserLeft._();
+  UserLeft createEmptyInstance() => create();
+  static $pb.PbList<UserLeft> createRepeated() => $pb.PbList<UserLeft>();
+  @$core.pragma('dart2js:noInline')
+  static UserLeft getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserLeft>(create);
+  static UserLeft? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get username => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set username($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasUsername() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUsername() => clearField(1);
+}
+
 enum ClientCommand_CommandType {
   userNameHandling, 
   chatMessage, 
   chatIcon, 
+  userJoined, 
+  userLeft, 
   notSet
 }
 
@@ -172,13 +268,17 @@ class ClientCommand extends $pb.GeneratedMessage {
     16 : ClientCommand_CommandType.userNameHandling,
     17 : ClientCommand_CommandType.chatMessage,
     18 : ClientCommand_CommandType.chatIcon,
+    19 : ClientCommand_CommandType.userJoined,
+    20 : ClientCommand_CommandType.userLeft,
     0 : ClientCommand_CommandType.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ClientCommand', createEmptyInstance: create)
-    ..oo(0, [16, 17, 18])
+    ..oo(0, [16, 17, 18, 19, 20])
     ..aOM<UserNameResponse>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userNameHandling', protoName: 'userNameHandling', subBuilder: UserNameResponse.create)
     ..aOM<ChatMessageResponse>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatMessage', protoName: 'chatMessage', subBuilder: ChatMessageResponse.create)
     ..aOM<ChatIconResponse>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatIcon', protoName: 'chatIcon', subBuilder: ChatIconResponse.create)
+    ..aOM<UserJoined>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userJoined', protoName: 'userJoined', subBuilder: UserJoined.create)
+    ..aOM<UserLeft>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userLeft', protoName: 'userLeft', subBuilder: UserLeft.create)
     ..hasRequiredFields = false
   ;
 
@@ -187,6 +287,8 @@ class ClientCommand extends $pb.GeneratedMessage {
     UserNameResponse? userNameHandling,
     ChatMessageResponse? chatMessage,
     ChatIconResponse? chatIcon,
+    UserJoined? userJoined,
+    UserLeft? userLeft,
   }) {
     final _result = create();
     if (userNameHandling != null) {
@@ -197,6 +299,12 @@ class ClientCommand extends $pb.GeneratedMessage {
     }
     if (chatIcon != null) {
       _result.chatIcon = chatIcon;
+    }
+    if (userJoined != null) {
+      _result.userJoined = userJoined;
+    }
+    if (userLeft != null) {
+      _result.userLeft = userLeft;
     }
     return _result;
   }
@@ -256,5 +364,27 @@ class ClientCommand extends $pb.GeneratedMessage {
   void clearChatIcon() => clearField(18);
   @$pb.TagNumber(18)
   ChatIconResponse ensureChatIcon() => $_ensure(2);
+
+  @$pb.TagNumber(19)
+  UserJoined get userJoined => $_getN(3);
+  @$pb.TagNumber(19)
+  set userJoined(UserJoined v) { setField(19, v); }
+  @$pb.TagNumber(19)
+  $core.bool hasUserJoined() => $_has(3);
+  @$pb.TagNumber(19)
+  void clearUserJoined() => clearField(19);
+  @$pb.TagNumber(19)
+  UserJoined ensureUserJoined() => $_ensure(3);
+
+  @$pb.TagNumber(20)
+  UserLeft get userLeft => $_getN(4);
+  @$pb.TagNumber(20)
+  set userLeft(UserLeft v) { setField(20, v); }
+  @$pb.TagNumber(20)
+  $core.bool hasUserLeft() => $_has(4);
+  @$pb.TagNumber(20)
+  void clearUserLeft() => clearField(20);
+  @$pb.TagNumber(20)
+  UserLeft ensureUserLeft() => $_ensure(4);
 }
 

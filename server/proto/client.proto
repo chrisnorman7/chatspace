@@ -15,11 +15,19 @@ message ChatIconResponse {
   string iconName = 2;
 }
 
+// A user has joined the server.
+message UserJoined { string username = 1; }
+
+// A user left the server.
+message UserLeft { string username = 1; }
+
 // A message from the server to the client.
 message ClientCommand {
   oneof CommandType {
     UserNameResponse userNameHandling = 16;
     ChatMessageResponse chatMessage = 17;
     ChatIconResponse chatIcon = 18;
+    UserJoined userJoined = 19;
+    UserLeft userLeft = 20;
   }
 }
