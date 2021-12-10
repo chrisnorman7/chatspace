@@ -8,13 +8,6 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
-@$core.Deprecated('Use userNameResponseDescriptor instead')
-const UserNameResponse$json = const {
-  '1': 'UserNameResponse',
-};
-
-/// Descriptor for `UserNameResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List userNameResponseDescriptor = $convert.base64Decode('ChBVc2VyTmFtZVJlc3BvbnNl');
 @$core.Deprecated('Use chatMessageResponseDescriptor instead')
 const ChatMessageResponse$json = const {
   '1': 'ChatMessageResponse',
@@ -61,11 +54,10 @@ final $typed_data.Uint8List userLeftDescriptor = $convert.base64Decode('CghVc2Vy
 const ClientCommand$json = const {
   '1': 'ClientCommand',
   '2': const [
-    const {'1': 'userNameHandling', '3': 16, '4': 1, '5': 11, '6': '.UserNameResponse', '9': 0, '10': 'userNameHandling'},
-    const {'1': 'chatMessage', '3': 17, '4': 1, '5': 11, '6': '.ChatMessageResponse', '9': 0, '10': 'chatMessage'},
-    const {'1': 'chatIcon', '3': 18, '4': 1, '5': 11, '6': '.ChatIconResponse', '9': 0, '10': 'chatIcon'},
-    const {'1': 'userJoined', '3': 19, '4': 1, '5': 11, '6': '.UserJoined', '9': 0, '10': 'userJoined'},
-    const {'1': 'userLeft', '3': 20, '4': 1, '5': 11, '6': '.UserLeft', '9': 0, '10': 'userLeft'},
+    const {'1': 'chatMessage', '3': 16, '4': 1, '5': 11, '6': '.ChatMessageResponse', '9': 0, '10': 'chatMessage'},
+    const {'1': 'chatIcon', '3': 17, '4': 1, '5': 11, '6': '.ChatIconResponse', '9': 0, '10': 'chatIcon'},
+    const {'1': 'userJoined', '3': 18, '4': 1, '5': 11, '6': '.UserJoined', '9': 0, '10': 'userJoined'},
+    const {'1': 'userLeft', '3': 19, '4': 1, '5': 11, '6': '.UserLeft', '9': 0, '10': 'userLeft'},
   ],
   '8': const [
     const {'1': 'CommandType'},
@@ -73,4 +65,4 @@ const ClientCommand$json = const {
 };
 
 /// Descriptor for `ClientCommand`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List clientCommandDescriptor = $convert.base64Decode('Cg1DbGllbnRDb21tYW5kEj8KEHVzZXJOYW1lSGFuZGxpbmcYECABKAsyES5Vc2VyTmFtZVJlc3BvbnNlSABSEHVzZXJOYW1lSGFuZGxpbmcSOAoLY2hhdE1lc3NhZ2UYESABKAsyFC5DaGF0TWVzc2FnZVJlc3BvbnNlSABSC2NoYXRNZXNzYWdlEi8KCGNoYXRJY29uGBIgASgLMhEuQ2hhdEljb25SZXNwb25zZUgAUghjaGF0SWNvbhItCgp1c2VySm9pbmVkGBMgASgLMgsuVXNlckpvaW5lZEgAUgp1c2VySm9pbmVkEicKCHVzZXJMZWZ0GBQgASgLMgkuVXNlckxlZnRIAFIIdXNlckxlZnRCDQoLQ29tbWFuZFR5cGU=');
+final $typed_data.Uint8List clientCommandDescriptor = $convert.base64Decode('Cg1DbGllbnRDb21tYW5kEjgKC2NoYXRNZXNzYWdlGBAgASgLMhQuQ2hhdE1lc3NhZ2VSZXNwb25zZUgAUgtjaGF0TWVzc2FnZRIvCghjaGF0SWNvbhgRIAEoCzIRLkNoYXRJY29uUmVzcG9uc2VIAFIIY2hhdEljb24SLQoKdXNlckpvaW5lZBgSIAEoCzILLlVzZXJKb2luZWRIAFIKdXNlckpvaW5lZBInCgh1c2VyTGVmdBgTIAEoCzIJLlVzZXJMZWZ0SABSCHVzZXJMZWZ0Qg0KC0NvbW1hbmRUeXBl');

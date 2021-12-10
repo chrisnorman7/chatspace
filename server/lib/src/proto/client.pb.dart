@@ -9,35 +9,6 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class UserNameResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UserNameResponse', createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  UserNameResponse._() : super();
-  factory UserNameResponse() => create();
-  factory UserNameResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UserNameResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UserNameResponse clone() => UserNameResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UserNameResponse copyWith(void Function(UserNameResponse) updates) => super.copyWith((message) => updates(message as UserNameResponse)) as UserNameResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static UserNameResponse create() => UserNameResponse._();
-  UserNameResponse createEmptyInstance() => create();
-  static $pb.PbList<UserNameResponse> createRepeated() => $pb.PbList<UserNameResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UserNameResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UserNameResponse>(create);
-  static UserNameResponse? _defaultInstance;
-}
-
 class ChatMessageResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ChatMessageResponse', createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'username')
@@ -255,7 +226,6 @@ class UserLeft extends $pb.GeneratedMessage {
 }
 
 enum ClientCommand_CommandType {
-  userNameHandling, 
   chatMessage, 
   chatIcon, 
   userJoined, 
@@ -265,35 +235,29 @@ enum ClientCommand_CommandType {
 
 class ClientCommand extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, ClientCommand_CommandType> _ClientCommand_CommandTypeByTag = {
-    16 : ClientCommand_CommandType.userNameHandling,
-    17 : ClientCommand_CommandType.chatMessage,
-    18 : ClientCommand_CommandType.chatIcon,
-    19 : ClientCommand_CommandType.userJoined,
-    20 : ClientCommand_CommandType.userLeft,
+    16 : ClientCommand_CommandType.chatMessage,
+    17 : ClientCommand_CommandType.chatIcon,
+    18 : ClientCommand_CommandType.userJoined,
+    19 : ClientCommand_CommandType.userLeft,
     0 : ClientCommand_CommandType.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ClientCommand', createEmptyInstance: create)
-    ..oo(0, [16, 17, 18, 19, 20])
-    ..aOM<UserNameResponse>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userNameHandling', protoName: 'userNameHandling', subBuilder: UserNameResponse.create)
-    ..aOM<ChatMessageResponse>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatMessage', protoName: 'chatMessage', subBuilder: ChatMessageResponse.create)
-    ..aOM<ChatIconResponse>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatIcon', protoName: 'chatIcon', subBuilder: ChatIconResponse.create)
-    ..aOM<UserJoined>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userJoined', protoName: 'userJoined', subBuilder: UserJoined.create)
-    ..aOM<UserLeft>(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userLeft', protoName: 'userLeft', subBuilder: UserLeft.create)
+    ..oo(0, [16, 17, 18, 19])
+    ..aOM<ChatMessageResponse>(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatMessage', protoName: 'chatMessage', subBuilder: ChatMessageResponse.create)
+    ..aOM<ChatIconResponse>(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatIcon', protoName: 'chatIcon', subBuilder: ChatIconResponse.create)
+    ..aOM<UserJoined>(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userJoined', protoName: 'userJoined', subBuilder: UserJoined.create)
+    ..aOM<UserLeft>(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userLeft', protoName: 'userLeft', subBuilder: UserLeft.create)
     ..hasRequiredFields = false
   ;
 
   ClientCommand._() : super();
   factory ClientCommand({
-    UserNameResponse? userNameHandling,
     ChatMessageResponse? chatMessage,
     ChatIconResponse? chatIcon,
     UserJoined? userJoined,
     UserLeft? userLeft,
   }) {
     final _result = create();
-    if (userNameHandling != null) {
-      _result.userNameHandling = userNameHandling;
-    }
     if (chatMessage != null) {
       _result.chatMessage = chatMessage;
     }
@@ -333,58 +297,47 @@ class ClientCommand extends $pb.GeneratedMessage {
   void clearCommandType() => clearField($_whichOneof(0));
 
   @$pb.TagNumber(16)
-  UserNameResponse get userNameHandling => $_getN(0);
+  ChatMessageResponse get chatMessage => $_getN(0);
   @$pb.TagNumber(16)
-  set userNameHandling(UserNameResponse v) { setField(16, v); }
+  set chatMessage(ChatMessageResponse v) { setField(16, v); }
   @$pb.TagNumber(16)
-  $core.bool hasUserNameHandling() => $_has(0);
+  $core.bool hasChatMessage() => $_has(0);
   @$pb.TagNumber(16)
-  void clearUserNameHandling() => clearField(16);
+  void clearChatMessage() => clearField(16);
   @$pb.TagNumber(16)
-  UserNameResponse ensureUserNameHandling() => $_ensure(0);
+  ChatMessageResponse ensureChatMessage() => $_ensure(0);
 
   @$pb.TagNumber(17)
-  ChatMessageResponse get chatMessage => $_getN(1);
+  ChatIconResponse get chatIcon => $_getN(1);
   @$pb.TagNumber(17)
-  set chatMessage(ChatMessageResponse v) { setField(17, v); }
+  set chatIcon(ChatIconResponse v) { setField(17, v); }
   @$pb.TagNumber(17)
-  $core.bool hasChatMessage() => $_has(1);
+  $core.bool hasChatIcon() => $_has(1);
   @$pb.TagNumber(17)
-  void clearChatMessage() => clearField(17);
+  void clearChatIcon() => clearField(17);
   @$pb.TagNumber(17)
-  ChatMessageResponse ensureChatMessage() => $_ensure(1);
+  ChatIconResponse ensureChatIcon() => $_ensure(1);
 
   @$pb.TagNumber(18)
-  ChatIconResponse get chatIcon => $_getN(2);
+  UserJoined get userJoined => $_getN(2);
   @$pb.TagNumber(18)
-  set chatIcon(ChatIconResponse v) { setField(18, v); }
+  set userJoined(UserJoined v) { setField(18, v); }
   @$pb.TagNumber(18)
-  $core.bool hasChatIcon() => $_has(2);
+  $core.bool hasUserJoined() => $_has(2);
   @$pb.TagNumber(18)
-  void clearChatIcon() => clearField(18);
+  void clearUserJoined() => clearField(18);
   @$pb.TagNumber(18)
-  ChatIconResponse ensureChatIcon() => $_ensure(2);
+  UserJoined ensureUserJoined() => $_ensure(2);
 
   @$pb.TagNumber(19)
-  UserJoined get userJoined => $_getN(3);
+  UserLeft get userLeft => $_getN(3);
   @$pb.TagNumber(19)
-  set userJoined(UserJoined v) { setField(19, v); }
+  set userLeft(UserLeft v) { setField(19, v); }
   @$pb.TagNumber(19)
-  $core.bool hasUserJoined() => $_has(3);
+  $core.bool hasUserLeft() => $_has(3);
   @$pb.TagNumber(19)
-  void clearUserJoined() => clearField(19);
+  void clearUserLeft() => clearField(19);
   @$pb.TagNumber(19)
-  UserJoined ensureUserJoined() => $_ensure(3);
-
-  @$pb.TagNumber(20)
-  UserLeft get userLeft => $_getN(4);
-  @$pb.TagNumber(20)
-  set userLeft(UserLeft v) { setField(20, v); }
-  @$pb.TagNumber(20)
-  $core.bool hasUserLeft() => $_has(4);
-  @$pb.TagNumber(20)
-  void clearUserLeft() => clearField(20);
-  @$pb.TagNumber(20)
-  UserLeft ensureUserLeft() => $_ensure(4);
+  UserLeft ensureUserLeft() => $_ensure(3);
 }
 
