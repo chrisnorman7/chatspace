@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       rendererBinding.setSemanticsEnabled(true);
     }
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Chatspace',
       theme: ThemeData(
         // This is the theme of your application.
         //
